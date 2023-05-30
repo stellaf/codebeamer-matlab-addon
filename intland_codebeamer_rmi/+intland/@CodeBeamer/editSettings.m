@@ -73,7 +73,7 @@ function ok = editSettings(cb)
 	function okClicked(~, ~)
         try
             opts = weboptions('Username', get(usernameField, 'String'), 'Password', get(passwordField, 'text'), 'ContentType', 'json');
-            user = webread([get(urlField, 'String') '/rest/user/self'], opts);
+            user = webread([get(urlField, 'String') '/rest/v3/user/self'], opts);
             
             if ~isempty(user)
                 cb.server.url      = get(urlField, 'String');
