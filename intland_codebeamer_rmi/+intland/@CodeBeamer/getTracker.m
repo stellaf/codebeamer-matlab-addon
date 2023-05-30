@@ -34,7 +34,7 @@ function tracker = getTracker(cb, uri)
     if ~isempty(lastTracker) && strcmp(lastTracker.uri, uri)
         tracker = lastTracker;
     elseif strncmp(uri, '/tracker/', 9) || strncmp(uri, '/category/', 10)
-        tracker = webread([cb.server.url '/rest' uri], cb.server.jsonOptions);
+        tracker = webread([cb.server.url '/rest/v3' uri], cb.server.jsonOptions);
         if ~isempty(tracker)
             lastTracker = tracker;
         end
