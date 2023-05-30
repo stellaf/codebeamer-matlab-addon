@@ -32,7 +32,7 @@ function association = createAssociation(cb, item, url, description)
     association = [];
     
     if ~(isempty(item) || isempty(url))
-        existing = webread([cb.server.url '/rest/item/' int2str(item.id) '/associations'], cb.server.jsonOptions);
+        existing = webread([cb.server.url '/rest/v3/item/' int2str(item.id) '/associations'], cb.server.jsonOptions);
         if ~isempty(existing)
             size = length(existing);
             
