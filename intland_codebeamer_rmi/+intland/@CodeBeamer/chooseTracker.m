@@ -34,7 +34,7 @@ function tracker = chooseTracker(cb)
 	trackerURI = getpref('codebeamer', 'projTracker', []);
     
     if isempty(projects)
-        projects = webread([cb.server.url '/rest/projects'], cb.server.jsonOptions());
+        projects = webread([cb.server.url '/rest/v3/projects'], cb.server.jsonOptions());
     end
 
 	[projectNames, project, projectValue] = getProjectNames(projects);
@@ -54,7 +54,7 @@ function tracker = chooseTracker(cb)
             catch
             end
            
-            projects = webread([cb.server.url '/rest/projects'], cb.server.jsonOptions());
+            projects = webread([cb.server.url '/rest/v3/projects'], cb.server.jsonOptions());
             [projectNames, project, projectValue] = getProjectNames(projects);
 
             if projectValue > 0
@@ -148,7 +148,7 @@ function tracker = chooseTracker(cb)
     end
  
 	function [trackers, trackerNames, tracker, trackerValue] = getTrackers(project)
-        trackers     = webread([cb.server.url '/rest' project.uri '/trackers?kind=Category,Tracker&type=' getTrackerTypes()], cb.server.jsonOptions);
+        trackers     = webread([cb.server.url '/rest/v3' project.uri '/trackers?kind=Category,Tracker&type=' getTrackerTypes()], cb.server.jsonOptions);
         trackerNames = {};
         tracker      = {};
         trackerValue = 1;
@@ -205,7 +205,7 @@ function tracker = chooseTracker(cb)
     end
  
 	function reloadProjects(~, ~)
-        projects = webread([cb.server.url '/rest/projects'], cb.server.jsonOptions());
+        projects = webread([cb.server.url '/rest/v3/projects'], cb.server.jsonOptions());
         
         [projectNames, project, projectValue] = getProjectNames(projects);
 
