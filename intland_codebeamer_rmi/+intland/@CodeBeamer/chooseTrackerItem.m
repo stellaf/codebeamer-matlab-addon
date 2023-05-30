@@ -169,7 +169,7 @@ function item = chooseTrackerItem(cb)
                 paragraph = '';
             end
             
-            items = webread([cb.server.url '/rest' tracker.uri '/outline?flat=true' paragraph], cb.server.jsonOptions);
+            items = webread([cb.server.url '/rest/v3' tracker.uri '/outline?flat=true' paragraph], cb.server.jsonOptions);
         end
         
         if nargout > 1
