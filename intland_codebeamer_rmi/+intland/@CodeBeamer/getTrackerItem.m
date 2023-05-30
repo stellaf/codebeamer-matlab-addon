@@ -43,7 +43,7 @@ function item = getTrackerItem(cb, itemIdOrURI)
     elseif ~isempty(lastItem) && strcmp(lastItem.uri, itemURI)
         item = lastItem;
     else 
-        item = webread([cb.server.url '/rest' itemURI], cb.server.jsonOptions);
+        item = webread([cb.server.url '/rest/v3' itemURI], cb.server.jsonOptions);
         if ~isempty(item)
             lastItem = item;
         end
