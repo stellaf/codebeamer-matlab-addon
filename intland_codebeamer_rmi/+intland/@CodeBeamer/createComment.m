@@ -63,7 +63,7 @@ function comment = createComment(cb, itemIdOrURI, description, format)
             
             data = struct('comment', description, 'commentFormat', format);
 
-            comment = webwrite([cb.server.url '/rest' item.uri '/comment'], data, cb.server.jsonOptions);
+            comment = webwrite([cb.server.url '/rest/v3' item.uri '/comment'], data, cb.server.jsonOptions);
         end
     end
 
