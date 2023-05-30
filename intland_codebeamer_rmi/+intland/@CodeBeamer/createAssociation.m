@@ -60,7 +60,7 @@ function association = createAssociation(cb, item, url, description)
                       'descFormat', 'Text');
                   
 
-        association = webwrite([cb.server.url '/rest/association'], data, cb.server.jsonOptions);
+        association = webwrite([cb.server.url '/rest/v3/association'], data, cb.server.jsonOptions);
     end
 end
 
